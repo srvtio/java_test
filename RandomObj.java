@@ -35,16 +35,29 @@ public class RandomObj {
 		}
 	    }
 	}
-	
-	File file = new File("test.dat");
 
-	PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+	try {
+            //出力先を作成する
+            FileWriter fw = new FileWriter("test.dat", false);  //※１
+            PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 
-        pw.println("a");
-        pw.println(10);
-        pw.println("b");
+            //内容を指定する
+            pw.println("あいうえお");
+            pw.println("かきくけこ");
+            pw.println("さしすせそ");
 
-        pw.close();
+            //ファイルに書き出す
+            pw.close();
+
+            //終了メッセージを画面に出力する
+            System.out.println("出力が完了しました。");
+
+        } catch (IOException ex) {
+            //例外時処理
+            ex.printStackTrace();
+        }
+
+	// System.out.println("なんでだろう") ;
 	    
     }
 
