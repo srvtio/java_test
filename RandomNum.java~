@@ -1,0 +1,56 @@
+public class RandomNum {
+
+    public static int rf(int iidum,int ip) {
+	int idum ;
+	int ma(55,0:7) ;
+	int inext(0:7) ;
+	int inextp(0:7) ;
+	int iff(0:7)=0 ;
+	int mbig=1000000000 ;
+	int mseed=161803398 ;
+	int mz=0 ;
+	double fac=1.d-9 ;
+	int  mj,mk,i,ii,k ;
+
+	idum = iidum + ip ;
+
+    if((idum<0) .or. (iff(ip)==0)) then
+       iff(ip) = 1
+       mj = mseed-iabs(idum)
+       mj = mod(mj,mbig)
+       ma(55,ip) = mj
+       mk = 1
+
+       do i=1,54
+          ii = mod(21*i,55)
+          ma(ii,ip) = mk
+          mk = mj - mk
+          if(mk<mz) mk=mk+mbig
+          mj = ma(ii,ip)
+       end do
+
+       do k=1,4
+          do i=1,55
+             ma(i,ip) = ma(i,ip) - ma(1+mod(i+30,55),ip)
+             if(ma(i,ip)<mz) ma(i,ip) = ma(i,ip) + mbig
+          end do
+       end do
+
+       inext(ip) = 0 
+       inextp(ip) = 31
+    end if
+
+200 inext(ip)=inext(ip)+1
+    if(inext(ip)==56) inext(ip)=1
+    inextp(ip) = inextp(ip) + 1
+    if(inextp(ip)==56) inextp(ip)=1
+    mj = ma(inext(ip),ip) - ma(inextp(ip),ip)
+    if(mj<mz) mj=mj+mbig
+    ma(inext(ip),ip) = mj
+    rf = mj * fac
+    if((1.0d-8<rf) .and. (rf<0.99999999)) return
+    go to 200
+	    
+    }
+
+}

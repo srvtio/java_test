@@ -1,0 +1,18 @@
+public class RandomObj {
+
+    public static void main(String[] args) {
+	int iCellNumber1 = 32 ;
+	int iCellNumber2 = 32 ;
+
+	double Knudesen1 = 0.0 ;
+	double Knudswen2 = 100.0 ;
+	
+	int i ;
+
+	i = iCellNumber1 + iCellNumber2 ;
+
+	System.out.println(i) ;
+	    
+    }
+
+}
